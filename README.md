@@ -255,5 +255,13 @@ python -u main.py --mode cascade_stage2   --cascade_arch dsba_net_3d --multimoda
 python -u main.py --mode cascade_evaluate --cascade_arch dsba_net_3d --multimodal --bbox_source predicted --dataset prostate158
 ```
 
+## Multimodal U-Net 3D cascade
+```bash
+python -u main.py --mode cascade_stage1   --cascade_arch unet3d --multimodal --epochs 100 --dataset prostate158
+python -u main.py --mode cascade_predict_bboxes --cascade_arch unet3d --multimodal --dataset prostate158
+python -u main.py --mode cascade_stage2   --cascade_arch unet3d --multimodal --epochs 120 --dataset prostate158
+python -u main.py --mode cascade_evaluate --cascade_arch unet3d --multimodal --bbox_source predicted --dataset prostate158
+```
+
 Outputs land under
 `output/prostate158/multimodal/cascade/{stage1,stage2}/...`.
